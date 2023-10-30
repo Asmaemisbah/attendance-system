@@ -59,7 +59,7 @@
     }
   }
   .bg-1 {
-    background: bisque;
+    background: rgb(235, 244, 251);
     color: #000000;
   }
   .bg-1 h3 {color: #000000;}
@@ -83,7 +83,7 @@
   }
   .btn {
     padding: 10px 20px;
-    background-color: bisque;
+    background-color:rgb(235, 244, 251);
     color: #f1f1f1;
     border-radius: 0;
     transition: .2s;
@@ -94,7 +94,7 @@
     color: #000;
   }
   .modal-header, h4, .close {
-    background-color: bisque;
+    background-color: rgb(235, 244, 251);
     color: #555 !important;
     text-align: center;
     font-size: 30px;
@@ -114,7 +114,7 @@
   .navbar {
     font-family: Montserrat, sans-serif;
     margin-bottom: 0;
-    background-color: bisque;
+    background-color: rgb(235, 244, 251);
     border: 0;
     font-size: 11px !important;
     letter-spacing: 4px;
@@ -128,7 +128,7 @@
   }
   .navbar-nav li.active a {
     color:#555 !important;
-    background-color: bisque !important;
+    background-color:rgb(235, 244, 251) !important;
   }
   .navbar-default .navbar-toggle {
     border-color: transparent;
@@ -144,7 +144,7 @@
     background-color: red !important;
   }
   footer {
-    background-color: bisque;
+    background-color:rgb(235, 244, 251);
     color: #383434;
     padding: 32px;
   }
@@ -165,169 +165,160 @@
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="/admin"><span class="glyphicon glyphicon-log-out" ></span></a>  
-        </li>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
         
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-<!-- Container (TOUR Section) -->
-<div id="tour" class="bg-1">
-  <div style=" width: 60%;" class="container"><br>
-    <h3 class="text-center">Time Table of {{filiereName}} </h3><br><br>
-    
-    <table class="table table-dark">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>08:30 to 12:00</th>
-          <th>14:00 to 18:00</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Monday</td>
-          <td>{{time_table['Monday']['08:30-12'][0]}}</td>
-          <td>{{time_table['Monday']['14:30-18'][0]}}</td>
-        </tr>
-        <tr>
-          <td>Tuesday</td>
-          <td>{{time_table['Tuesday']['08:30-12'][0]}}</td>
-          <td>{{time_table['Tuesday']['14:30-18'][0]}}</td>
-        </tr>
-        <tr>
-          <td>Wednesday</td>
-          <td>{{time_table['Wednesday']['08:30-12'][0]}}</td>
-          <td>{{time_table['Wednesday']['14:30-18'][0]}}</td>
-        </tr>
-        <tr>
-          <td>Thursday</td>
-          <td>{{time_table['Thursday']['08:30-12'][0]}}</td>
-          <td>{{time_table['Thursday']['14:30-18'][0]}}</td>
-        </tr>
-        <tr>
-          <td>Friday</td>
-          <td>{{time_table['Friday']['08:30-12'][0]}}</td>
-          <td>{{time_table['Friday']['14:30-18'][0]}}</td>
-        </tr>
-        <tr>
-          <td>Saturday</td>
-          <td>{{time_table['Saturday']['08:30-12'][0]}}</td>
-          <td>{{time_table['Saturday']['14:30-18'][0]}}</td>
-        </tr>
-      </tbody>
-    </table>
-    
-      <div>
-        <button style="border-radius: 7px; position: absolute; margin-left: 33%; height: 37px; background-color: rgba(36, 199, 22, 0.233);" class="btn btn-success pull-right" type="submit"  data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span></button>
       </div>
-  </div>
-  <br><br>
-</div>
-
-
- <!-- Modal -->
- <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-   <div class="modal-content">
-       <div class="modal-header">
-         <button type="button" class="close" data-dismiss="modal">&times;</button>
-         <p class="modal-title">EDIT TimeTable of {{filiereName}}</p>
-       </div>
-       <form class="form" action='/save_time/{{filiereName}}' method='POST' enctype='multipart/form-data'>
-        <div class="modal-body">
-            
-            <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Day:</label>
-                <input list='days' name="day" type="text"  class="form-control" id="recipient-name" required>
-                <datalist id="days">
-                  <option >Monday</option>
-                  <option >Tuesday</option>
-                  <option >Wednesday</option>
-                  <option >Thursday</option>
-                  <option >Friday</option>
-                  <option >Saturday</option>
-
-                </datalist>
-            </div>
-            <div class="form-group">
-                <label for="recipient-name" class="col-form-label">First Seance (8:30-12):<br>
-                  <small style="color: rgba(197, 65, 65, 0.938);" >(Please if there is no seance leave it empty)</small>
-                </label>
-                <input name="Firstseance" list="time" type="text" class="form-control" id="recipient-name" >
-                
-            </div>
-            <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Second Seance (2:30-18): <br> <small style="color: rgba(197, 65, 65, 0.938);" >(Please if there is no seance leave it empty)</small>
-                </label>
-                <input name="Secondseance" type="text" class="form-control" id="recipient-name" >
-            </div>
-            
-          </div>
-       
-       <div class="modal-footer">            
-           <button style="background-color: rgba(0, 128, 0, 0.555); border-radius: 5px;"  type="submit" class="btn btn-success">Save</button>                   
-       </div>
-       </form>
-     </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="text-center">
-  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br>
-  <p>AHEMRI Mariem &nbsp;&nbsp;  -- &nbsp;&nbsp;  EL HANDAOUI Ibtissam  </p>
-  <p>Project Graduation</p>
-</footer>
-
-<script>
-$(document).ready(function(){
-  // Initialize Tooltip
-  $('[data-toggle="tooltip"]').tooltip(); 
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/admin"><span class="glyphicon glyphicon-log-out" ></span></a>  
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
   
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+  
+  <!-- Container (TOUR Section) -->
+  <div id="tour" class="bg-1">
+    <div style=" width: 60%;" class="container"><br>
+      <h3 class="text-center">Time Table  </h3><br><br>
+      
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>08:30 to 14:0</th>
+            <th>14:30 to 02:00</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>lundi</td>
+            <td>{{ time_table['lundi']['08:30-14'] }}</td>
+            <td>{{ time_table['lundi']['14:30-02:00'] }}</td>
+          </tr>
+          <tr>
+            <td>mardi</td>
+            <td>{{ time_table['mardi']['08:30-14'] }}</td>
+            <td>{{ time_table['mardi']['14:30-02:00'] }}</td>
+          </tr>
+          <tr>
+            <td>mercredi</td>
+            <td>{{ time_table['mercredi']['08:30-14'] }}</td>
+            <td>{{ time_table['mercredi']['14:30-02:00'] }}</td>
+          </tr>
+          <tr>
+            <td>jeudi</td>
+            <td>{{ time_table['jeudi']['08:30-14'] }}</td>
+            <td>{{ time_table['jeudi']['14:30-02:00'] }}</td>
+          </tr>
+          <tr>
+            <td>vendredi</td>
+            <td>{{ time_table['vendredi']['08:30-14'] }}</td>
+            <td>{{ time_table['vendredi']['14:30-02:00'] }}</td>
+            </tr>
+        </tbody>
+      </table>    
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-})
-</script>
-
-</body>
-</html>
+      <div>
+        <button style="border-radius: 7px; position: absolute; margin-left: 33%; height: 37px; background-color: rgba(36, 199, 22, 0.233);" class="btn btn-success pull-right" type="button" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil"></span></button>
+    </div>
+    <br><br>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <p class="modal-title">EDIT TimeTable </p>
+                </div>
+                <form class="form" action="{{ url_for('edit_time', service=service) }}" method="POST" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">day:</label>
+                            <input list="days" name="day" type="text" class="form-control" id="recipient-name" required>
+                            <datalist id="days">
+                                <option>lundi</option>
+                                <option>mardi</option>
+                                <option>mercredi</option>
+                                <option>jeudi</option>
+                                <option>vendredi</option>
+                            </datalist>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">First Seance (8:30-14):<br>
+                                <small style="color: rgba(197, 65, 65, 0.938);">(Please if there is no seance leave it empty)</small>
+                            </label>
+                            <input name="Firstseance" list="time" type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Second Seance (14:30-02): <br>
+                                <small style="color: rgba(197, 65, 65, 0.938);">(Please if there is no seance leave it empty)</small>
+                            </label>
+                            <input name="Secondseance" type="text" class="form-control" id="recipient-name">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button style="background-color: rgba(0, 128, 0, 0.555); border-radius: 5px;" type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+  
+  
+  <!-- Footer -->
+  <footer class="text-center">
+    <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </a><br><br>
+    <p>Chaymae Belfaik </p>
+    <p>Projet de stage</p>
+  </footer>
+  
+  <script>
+  $(document).ready(function(){
+    // Initialize Tooltip
+    $('[data-toggle="tooltip"]').tooltip(); 
+    
+    // Add smooth scrolling to all links in navbar + footer link
+    $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+  
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+  
+        // Prevent default anchor click behavior
+        event.preventDefault();
+  
+        // Store hash
+        var hash = this.hash;
+  
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 900, function(){
+     
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  })
+  </script>
+  
+  </body>
+  </html>
+  
