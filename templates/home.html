@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <!--
+      <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+      <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+      <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+      -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="./static/css/bootstap.min.css">
+      <link rel="stylesheet" href="./static/css/home.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+      <!-------------------------------------Material_Design_Bootstrap------------------------------------->
+      <link href="./static/css/mdb.min.css" rel="stylesheet">
+      
+      <!-------------------------------------/Material_Design_Bootstrap------------------------------------->
+      <script src="./static/js/jquery-3.5.1.min.js"></script>
+      <script src="./static/js/bootstrap.min.js"></script>
+      <script>
+        $(document).ready(function(){
+            $("#done").hide();
+            $("#start").click(function(){
+              $("#done").show(10000);
+            });
+        });
+        </script>
+      
+      <title>Absence management</title>
+      <h3 class="tit"><strong style="font-family: Georgia, 'Times New Roman', Times, serif; color: whitesmoke; font-weight: 700;">Welcome to the absence management</strong></h3>
+
+    </head>
+    
+    <body>
+      
+      <nav class="navbar navbar-expand-lg navbar-dark  nav_bar" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="https://www.uca.ma/este">Ecole</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#" style="margin-left: 30%;">About</a>
+              <a class="nav-link active" aria-current="page" href="/absence" style="margin-left: 30%;">Absence</a>
+              <a class="nav-link" href="/" style="position: absolute;margin-left: 87%;">Log out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+     
+      <div class="place1" >
+        <img   style="border-radius: 15px; width: 700px;"id="bg"  src="./static/images/bg.png">
+        <form action="/done" method="GET">
+          <input type="submit" class="btn " value="Done!" id="done">
+          
+        </form>
+        
+      </div>
+
+      <div class="place2">
+        <div>
+            <img src="./static/images/ESTE.png" alt="" style="width: 90%; height: 100%; display: flex; float:right">
+        </div>
+        <div id="pfmd">
+            <div class="mb-3">
+                <label>&nbsp;Professeur&nbsp;: {{ProfName}}</label>
+            </div>
+            <div class="mb-3">
+                <label>&nbsp;Filiére&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {{filierName}}</label>
+            </div>
+        </div>
+
+    </div>
+        
+      </div>
+
+      <div class="place3">
+        <input type="submit" class="btn" value="Start" id="start">
+      </div>
+      
+      <div class=" footer-basic">
+        <footer>
+          <div style="position: absolute; margin-left: 35%;">
+            <!-- Container (Contact Section) -->
+            <div id="info" class="container-fluid bg-grey" >
+              <h2 class="text-center">Admins Contacts</h2>
+            </div><br><br>
+            <div style="text-align: center;margin-left: -80%;  width: 250%;display:flex;" class="row">
+              <div class="col-sm-6 slideanim" >
+                <p><span class="glyphicon glyphicon-chevron-right"></span> EL HANDAOUI Ibtissam</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +2126 - 14728901</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> ibtissam.handa27@gmail.com</p>
+                <div class="social">
+                  <a target="_blank" href=https://www.instagram.com/ibtissam_elhandaoui/ ><i class="icon ion-social-instagram"></i></a>              
+                  <a target="_blank" href=https://web.facebook.com/ibtissam.elhandaoui><i class="icon ion-social-facebook"></i></a>
+                
+                </div>
+              </div>
+              <div class="col-sm-6 slideanim">        
+                <p><span class="glyphicon glyphicon-chevron-right"></span> AHEMRI Mariem</p>
+                <p><span class="glyphicon glyphicon-phone"></span> +2126 - 02 99 53 79</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> ahemri02@gmail.com</p>
+                <div class="social">
+                    <a target="_blank" href=https://www.instagram.com/mariem_ahemri/ ><i class="icon ion-social-instagram"></i></a>           
+                    <a target="_blank" href=https://web.facebook.com/mariam.ahemri.14><i class="icon ion-social-facebook"></i></a>
+                    <a target="_blank" href=https://www.linkedin.com/in/mariem-ahemri-b302b6207/><i class="icon ion-social-linkedin"></i></a>
+                    <a target="_blank" href=https://github.com/Mariemahemri><i class="icon ion-social-github"></i></a>
+                  </div>
+              </div>
+
+              </div>    
+            
+        </footer>
+      </div>
+
+
+      <script>
+        //{{ url_for('video') }}
+        document.getElementById("start").onclick = change;
+        function change() {
+          document.getElementById("bg").setAttribute('src',"{{url_for('video')}}")
+          document.getElementById("bg").setAttribute('class','bgn')
+        }
+      </script>
+     
+    </body>
+    
+</html>

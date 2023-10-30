@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Absence Managment System</title>
+    <link rel="stylesheet" href="./static/css/login.css">
+</head>
+
+<body>
+
+    <form class="box" action="/" method="POST">
+        <h1>Absence Managment System</h1>
+        {% if message %}
+        <div class="alert alert-secondary" role="alert">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+        <input type="text" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <a href="#">
+            <small
+                style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color: black;">Forget
+                Password ?</small>
+        </a>
+        <input type="submit" name="" value="Login">
+
+    </form>
+    
+
+</body>
+
+</html>

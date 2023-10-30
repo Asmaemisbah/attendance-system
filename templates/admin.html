@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>Absence Management | Admin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <style>
+  body {
+    font: 400 15px Lato, sans-serif;
+    line-height: 1.8;
+    color: rgb(10, 10, 10);
+  }
+  h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: rgb(10, 10, 10);
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }  
+  .jumbotron {
+    background-color: bisque;
+    color: rgb(10, 10, 10);
+    padding: 100px 25px;
+    font-family: Montserrat, sans-serif;
+  }
+  .container-fluid {
+    padding: 60px 50px;
+  }
+  .bg-grey {
+    background-color: #f6f6f6;
+  }
+  .logo-small {
+    color: bisque;
+    font-size: 50px;
+  }
+  .logo {
+    color: bisque;
+    font-size: 200px;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+  }
+  .carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: bisque;
+  }
+  .carousel-indicators li {
+    border-color: bisque;
+  }
+  .carousel-indicators li.active {
+    background-color: bisque;
+  }
+  .item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+  }
+  .item span {
+    font-style: normal;
+  }
+  .panel {
+    border: 1px solid bisque; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+  }
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  .panel-footer .btn:hover {
+    border: 1px solid bisque;
+    background-color: rgb(36, 6, 6) !important;
+    color: bisque;
+  }
+  .panel-heading {
+    color: #fff !important;
+    background-color: bisque !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  .panel-footer {
+    background-color: white !important;
+  }
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: bisque;
+    color: #fff;
+  }
+  .navbar {
+    margin-bottom: 0;
+    background-color: bisque;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+    color: rgb(10, 10, 10) !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: bisque !important;
+    background-color: rgb(17, 6, 6) !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: rgb(10, 10, 10) !important;
+  }
+  footer .glyphicon {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: rgb(10, 10, 10);
+  }
+  .slideanim {visibility:hidden;}
+  .slide {
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 150px;
+    }
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">EST Essaouira</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+
+        
+        <li><a href="#about">school</a></li>
+        <li><a href="#services">Fast Acces</a></li>
+        <li><a href="#students">Students</a></li>
+        <li><a href="#timeTable">TimeTable</a></li>
+        <li><a href="#prf">Professors</a></li>
+        <li><a href="/logout">Logout</a></li>
+
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <img style="height: 150px;" src="/static/images/ESTE.png" alt="Est Essaouira">
+  <h1>Administration EstE</h1> 
+  <p>Absence Management System</p> 
+  
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>EST Essaouira</h2><br>
+      <h4>The Essaouira Higher School of Technology, created in 2005, is a Moroccan public higher education school. It is part of the network of higher schools of technology and reports to Cadi Ayyad University.</h4><br>
+      
+      <br><button  class="btn btn-default btn-lg" href="https://www.uca.ma/este" >Go to official web site</button>
+    </div>
+    <div class="col-sm-4">
+        <img src="/static/images/est.png" alt="Est Essaouira" class="img-circle"  width="410" height="300">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+    <h2>SERVICES</h2>
+    <h4>Fast acces</h4>
+    <br>
+    <div class="row slideanim">
+   
+      <div class="col-sm-4">
+        <a href="#students"><span class="glyphicon glyphicon-stats logo-small"></span></a>
+        <h4>Absence</h4>
+        <p>View all absences of students..</p>
+      </div>
+
+      <div class="col-sm-4">
+        <a href="#timeTable"><span class="glyphicon glyphicon-calendar logo-small"></span></a> 
+        <h4>TimeTable</h4>
+        <p>View all TimeTables..</p>
+      </div>
+  
+      <div class="col-sm-4">
+        <a href="#prf"><span class="glyphicon glyphicon-user logo-small"></span></a> 
+        <h4>Our Professors</h4>
+        <p>View all professors..</p>
+      </div>
+  
+    </div>
+    <br><br>
+    <div class="row slideanim">
+      
+      <div id="students" class="container-fluid bg-grey">
+        <div class="row">
+          <div class="col-sm-4" >
+            <div class="panel panel-danger">
+                <div class="panel-heading"> <b style="font-family: 'Times New Roman', Times, serif; font-size: large;" >Student Sector</b> </div>
+                <div class="panel-body"><img style="height: 130px; width: 100%;" src="/static/images/students.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div style="text-align: center;" class="panel-footer"> <b style="font-family: 'Times New Roman', Times, serif;"> Manage Students</b> </div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <h2>Student Sector</h2>
+            <h4><strong style="border-bottom: 2px dotted orangered;">MISSION </strong> :
+                <h4><span class="glyphicon glyphicon-chevron-right"></span> You must write the name of the sector you want to manage their students. </h4> 
+                <h4> Select it <span class="glyphicon glyphicon-ok "></span></h4>
+            </h4>
+          </div>
+            <form role="search" action="/students" method='POST' enctype='multipart/form-data'  style="width: 70%;">
+                <div class="input-group">
+                  <input type="text" name="searching_student" list="myDataList" class="form-control" placeholder="Sector name..">
+                         
+                <datalist id="myDataList"> 
+                  {%for f in filieres%}                                  
+                            <option>{{f}}</option>  
+                  {%endfor%}                                    
+                </datalist>        
+                <div class="input-group-btn">
+                    <a href="#students"> <button type="submit" class="btn btn-danger">Searching</button></a>
+                </div>
+                        
+                </div>
+              </form>
+        </div>
+      </div>
+    
+    
+    
+    <div id="timeTable" class="container-fluid bg-grey">
+      <div class="row">
+        <div class="col-sm-4" >
+            <div class="panel panel-primary">
+                <div class="panel-heading"> <b style="font-family: 'Times New Roman', Times, serif; font-size: large;" >TimeTible Sector</b> </div>
+                <div class="panel-body"><img style="height: 130px; width: 100%;" src="/static/images/emp_temps.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                <div style="text-align: center;" class="panel-footer"> <b style="font-family: 'Times New Roman', Times, serif;" >Manage  TimeTables</b> </div>
+              </div>
+        </div>
+        <div class="col-sm-8">
+            <h2>TimeTable Sector</h2>
+            <h4><strong style="border-bottom: 2px dotted orangered;">MISSION </strong> :
+                <h4><span class="glyphicon glyphicon-chevron-right"></span> You must write the name of the sector you want to manage their TimeTible. </h4> 
+                <h4> Select it <span class="glyphicon glyphicon-ok "></span></h4>
+            </h4>
+        </div>
+          <form role="search" action="/timetable" method='POST' enctype='multipart/form-data'  style="width: 70%;">
+            <div class="input-group">
+              <input type="text" name="searching_timetable" list="myDataList1" class="form-control" placeholder="Sector name..">
+                     
+            <datalist id="myDataList1">                                   
+              {%for f in filieres%}                                  
+                <option>{{f}}</option>  
+              {%endfor%}                                               
+            </datalist>        
+            <div class="input-group-btn">
+                <a href="#"> <button type="submit" class="btn btn-danger">Searching</button></a>
+            </div>
+                    
+            </div>
+          </form>
+      </div>
+    </div>
+    
+      <div id="prf" class="container-fluid bg-grey">
+        <div class="row">
+            <div class="col-sm-4"> 
+                <div  class="panel panel-success">
+                    <div class="panel-heading"><b style="font-family: 'Times New Roman', Times, serif; font-size: large;" >Proffesor Sector</b></div>
+                    <div class="panel-body"><img style="height: 130px; width: 100%;" src="/static/images/prf.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                    <div style="text-align: center;" class="panel-footer"><b style="font-family: 'Times New Roman', Times, serif;">  Manage Professors</b></div>
+                  </div>
+            </div>
+            <div class="col-sm-8">
+                <h2>Professor Sector</h2>
+                <h4><strong style="border-bottom: 2px dotted orangered;">MISSION </strong> :
+                    <h4><span class="glyphicon glyphicon-chevron-right"></span> You must write the name of the Professor you want to manage. </h4> 
+                    <h4> Select it <span class="glyphicon glyphicon-ok "></span></h4>
+                </h4>
+            </div>
+            <form role="search" action="/prof" method='POST' enctype='multipart/form-data'  style="width: 70%;">
+                <div class="input-group">
+                  <input type="text" name="searching_prof" list="myDataList2" class="form-control" placeholder="Professor name..">
+                         
+                <datalist id="myDataList2">                                   
+                  {%for p in profs%}                                  
+                    <option>{{p}}</option>  
+                  {%endfor%}                                     
+                </datalist>        
+                <div class="input-group-btn">
+                    <a href="#"> <button type="submit" class="btn btn-danger">Searching</button></a>
+                </div>
+                <button style="border-radius: 7px; position: absolute; margin-left: 2%; height: 37px; background-color: rgba(100, 148, 237, 0.185);"  class="btn btn-info pull-right" type="button"  data-toggle="modal" data-target="#myModal">
+                  <span class="glyphicon glyphicon-plus"></span>
+                </button>
+                  
+                </div>
+            </form>
+        </div>
+      </div><br>
+    
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+         <div class="modal-content">
+             <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <p class="modal-title">ADD Professor</p>
+             </div>
+             <form class="form" action='/admin/add' method='POST' enctype='multipart/form-data'>
+             <div class="modal-body">
+                 
+                 <div class="form-group">
+                     <label for="recipient-name" class="col-form-label">Full Name :</label>
+                     <input name="FullName" type="text" class="form-control" id="recipient-name" required>
+                 </div>
+               
+                 <div class="form-group">
+                     <label for="recipient-name" class="col-form-label">E-mail :</label>
+                     <input name="email" type="email" class="form-control" id="recipient-name" required>
+                 </div>
+                 <div class="form-group">
+                     <label for="recipient-name" class="col-form-label">filieres : <br> 
+                         <small style="color: rgba(197, 65, 65, 0.938);" >(Please enter names of filiers separated by a comma)</small> </label>
+                     <input name="courses" type="text" class="form-control" id="recipient-name" required>
+                 </div>
+                 
+             </div>
+             
+             <div class="modal-footer">            
+                 <button style="background-color: rgba(0, 128, 0, 0.555); border-radius: 5px;"  type="submit" class="btn btn-success">Save</button>                   
+             </div>
+             </form>
+           </div>
+        </div>
+      </div>
+    
+    
+    
+    
+    <footer id="foter" class="container-fluid text-center">
+      <div class="container" style="width: 80%; height: 30%; margin: auto;border-radius: 10px; box-shadow: 5px 5px 20px 20px rgba(192, 185, 185, 0.884);">
+        <h1 style="text-align: center; font-family: 'Times New Roman', Times, serif;">
+          Adminitrators space
+        </h1>
+        <br>
+        <div class="col-sm-4">
+          <div class="card">        
+            <div class="card-body">
+              <h4 style="font-family: 'Times New Roman', Times, serif;" > <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Admin 1</h4>
+            </div>
+            <hr>
+            <div class="card-body">
+              <h3>elhandaoui Ibtissam</h3>          
+            </div>
+          </div>
+        </div>
+    
+        <div class="col-sm-4">
+          <div class="card">        
+            <div class="card-body">
+              <h4 style="font-family: 'Times New Roman', Times, serif;" > <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Admin 2</h4>
+            </div>
+            <hr>
+            <div class="card-body">
+              <h3>Ahemri Mariem</h3>          
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-4">
+          <div class="card">        
+            <div class="card-body">
+              <img style="position: relative; height: 200px; border: 2px solid white; border-radius: 5px;" src="/static/images/administrateur.png" alt="">
+            </div>
+            <hr>
+            
+          </div>
+        </div><br>
+        
+      </div><br>
+        <br><br>
+      <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+      </a>
+      <p>EL HANDAOUI Ibtissam &nbsp;&nbsp;  -- &nbsp;&nbsp;  AHEMRI Mariem  </p>
+      <p>Project Graduation</p>
+    </footer>
+    
+    <script>
+    $(document).ready(function(){
+      // Add smooth scrolling to all links in navbar + footer link
+      $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+          // Prevent default anchor click behavior
+          event.preventDefault();
+    
+          // Store hash
+          var hash = this.hash;
+    
+          // Using jQuery's animate() method to add smooth page scroll
+          // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 900, function(){
+       
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          });
+        } // End if
+      });
+      
+      $(window).scroll(function() {
+        $(".slideanim").each(function(){
+          var pos = $(this).offset().top;
+    
+          var winTop = $(window).scrollTop();
+            if (pos < winTop + 600) {
+              $(this).addClass("slide");
+            }
+        });
+      });
+    })
+    </script>
+    
+    </body>
+    </html>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <style>
+        /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+        .navbar {
+          margin-bottom: 50px;
+          border-radius: 0;
+        }
+        /* Add a gray background color and some padding to the footer */
+        footer {
+          background-color: #f2f2f2;
+          padding: 25px;
+        }
+      </style>
+    </head>
+    <body>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width: 100%;  position: fixed; z-index: 20; top: 50px; height: 43px; background-color: rgb(37, 34, 34);" >
+            <form class="navbar-form navbar-left" role="search" method='POST' enctype='multipart/form-data'>
+                
+                <div class="form-group" style="position: absolute; margin-left: 12%;">
+                <input type="text" name="searching" list="myDataList" class="form-control" placeholder="Search for your product.." style=" width: 900px; ">
+                </div>
+                <a href="#">
+                    <button type="submit" class="btn btn-info" style="position: absolute; margin-left: 80%;"> <span class="glyphicon glyphicon-search"></span>&nbsp; <b>Search</b>  </button>
+                </a>
+                
+                <datalist id="myDataList">
+        
+                                              
+                            <option> test 1 </option>
+                            <option> test 2 </option>
+                            <option> test 3 </option>                            
+                    
+        
+                </datalist>
+            </form>
+        </div>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Administration ESTE</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Est Essaouira</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Management Timetable<span class="caret"></span></a>
+            <ul class="dropdown-menu">     
+              <li><a href="#"> View Timetable</a></li>     
+              <li><a href="#"> Add new Timetable</a></li>                    
+              <li><a href="#"> Modify Timetable</a></li>
+              <li><a href="#"> Delet Timetable</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Management sectors students<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">IDSD-2</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Professors management</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Add admin</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign out</a></li>
+        </ul>
+      </div>
+    </nav>
+      
+    <div class="container">    
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading"> <b style="font-family: 'Times New Roman', Times, serif; font-size: large;" >IDSD-2 Sector</b> </div>
+              <div class="panel-body"><img style="height: 130px; width: 100%;" src="/static/images/emp_temps.png" class="img-responsive" style="width:100%" alt="Image"></div>
+              <div style="text-align: center;" class="panel-footer"> <b style="font-family: 'Times New Roman', Times, serif;" >Manage IDSD-2 TimeTable</b> </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">BLACK FRIDAY DEAL</div>
+              <div class="panel-body"><img src="/static/images/ESTE.png" class="img-responsive" style="width:100%" alt="Image"></div>
+              <div class="panel-footer"><b style="margin-left: 1px;">card</b>  
+                <form style="border: 2px solid black; position:absolute; margin-top: 0px;"  class="navbar-form navbar-left" action="#">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">BLACK FRIDAY DEAL</div>
+              <div class="panel-body"><img src="/static/images/ESTE.png" class="img-responsive" style="width:100%" alt="Image"></div>
+              <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+            </div>
+          </div>
+        </div>
+      </div><br>
+      
+      <div class="container">    
+        <div class="row">
+            <div class="col-sm-4"> 
+                <div class="panel panel-danger">
+                    <div class="panel-heading"> <b style="font-family: 'Times New Roman', Times, serif; font-size: large;" >IDSD-2 Sector</b> </div>
+                    <div class="panel-body"><img style="height: 130px; width: 100%;" src="/static/images/student.png" class="img-responsive" style="width:100%" alt="Image"></div>
+                    <div style="text-align: center;" class="panel-footer"> <b style="font-family: 'Times New Roman', Times, serif;"> Manage IDSD-2 Students</b> </div>
+                </div>
+            </div>
+            <div class="col-sm-4"> 
+                <div class="panel panel-danger">
+                  <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                  <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                  <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                </div>
+            </div>
+            <div class="col-sm-4"> 
+                <div class="panel panel-danger">
+                  <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                  <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                  <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                </div>
+            </div>
+        </div>
+      </div><br><br>
+      <div class="container">    
+        <div class="row">
+            <div class="col-sm-4"> 
+                <div class="panel panel-success">
+                  <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                  <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                  <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                </div>
+            </div>
+            <div class="col-sm-4"> 
+                <div class="panel panel-success">
+                  <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                  <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                  <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                </div>
+            </div>
+            <div class="col-sm-4"> 
+                <div class="panel panel-success">
+                  <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                  <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+                  <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+                </div>
+            </div>
+        </div>
+      </div><br><br>
+      
+      <footer class="container-fluid text-center" style="background-color: black;">
+           
+        
+      </footer>
+    </body>
+    </html>
+    -->
