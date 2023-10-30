@@ -8,7 +8,6 @@ import numpy as np
 
 
 class SimpleDetect:
-
     def __init__(self):
         self.face_numpy = []
         self.face_names = []
