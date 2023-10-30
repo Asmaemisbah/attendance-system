@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>{{prof_name}} professor</title>
+  <title>{{employe.Name_employe}} professor</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -49,7 +50,7 @@
     }
   }
   .bg-1 {
-    background: bisque;
+    background: rgb(235, 244, 251);
     color: #111;
   }
   .bg-1 h3 {color: #111;}
@@ -73,7 +74,7 @@
   }
   .btn {
     padding: 10px 20px;
-    background-color: bisque;
+    background-color: rgb(235, 244, 251);
     color: #111;
     border-radius: 0;
     transition: .2s;
@@ -84,7 +85,7 @@
     color: #000;
   }
   .modal-header, h4, .close {
-    background-color: bisque;
+    background-color: rgb(235, 244, 251);
     color: #111 !important;
     text-align: center;
     font-size: 30px;
@@ -104,7 +105,7 @@
   .navbar {
     font-family: Montserrat, sans-serif;
     margin-bottom: 0;
-    background-color: bisque;
+    background-color: rgb(235, 244, 251);
     border: 0;
     font-size: 11px !important;
     letter-spacing: 4px;
@@ -118,7 +119,7 @@
   }
   .navbar-nav li.active a {
     color: #111 !important;
-    background-color: bisque !important;
+    background-color: rgb(235, 244, 251) !important;
   }
   .navbar-default .navbar-toggle {
     border-color: transparent;
@@ -134,7 +135,7 @@
     background-color: red !important;
   }
   footer {
-    background-color: bisque;
+    background-color: rgb(235, 244, 251);
     color: #111;
     padding : 32px;
   }
@@ -163,7 +164,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#myPage">MR.{{prof_name}}</a>
+      <a class="navbar-brand" href="#myPage">MR.{{employe.Name_employe}}</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -179,37 +180,38 @@
 
 
 <!-- Container (TOUR Section) -->
+<!-- Le reste de votre code HTML -->
+
 <div id="tour" class="bg-1">
-  <div style=" width: 60%;" class="container"><br>
-    <h3 class="text-center">Professor Management  
-  </h3>
-  <br><br>
-    
-      
-    <div  class="row">
-        <div class="col-sm-5">
-            <img style="width: 100%; height: 285px; margin-left: -16px;"  src="/static/images/{{prof_name}}.jpg" class="img-circle" alt="">
-        </div>
-        <div style="margin-right: 0%;" class="col-sm-7"><br>
-            <p style="font-family: 'Times New Roman', Times, serif; font-size: large;" ><b style="color:#111">Professor Name :</b>  {{prof_name}}</p>
-            <p style="font-family: 'Times New Roman', Times, serif; font-size: large;" ><b style="color:#111">Professor E-mail :</b> {{email}}</p>
-            <p style="font-family: 'Times New Roman', Times, serif; font-size: large;" ><b style="color:#111;">teaching filieres :</b> </p>
-            <ul>
-              {%for f in range(len(filieres))%}
-                <li>{{filieres[f]}}</li>
-              {%endfor%}
-            </ul>
+  <div style="width: 60%;" class="container"><br>
+    <h3 class="text-center">employee Management</h3>
+    <br><br>
 
-            <div>
-                <button style="border-radius: 7px; position: absolute; margin-left: 52%; height: 37px; background-color: rgba(36, 199, 22, 0.233);" class="btn btn-success pull-right" type="submit"  data-toggle="modal" data-target="#myModalEdit" ><span class="glyphicon glyphicon-pencil"></span></button>                
-                <button  style="border-radius: 7px; position: absolute; margin-left: 73%; height: 37px; background-color: rgba(206, 49, 44, 0.26);" class="btn btn-danger pull-right" type="submit" data-toggle="modal" data-target="#myModalDelet" ><span class="glyphicon glyphicon-trash"></span></button>                                                             
-            </div>
+    <div class="row">
+      <div class="col-sm-5">
+        <img style="width: 100%; height: 285px; margin-left: -16px;" src="/static/images/{{ employe.prof_name }}.jpg" class="img-circle" alt="">
+      </div>
+      <div style="margin-right: 0%;" class="col-sm-7"><br>
+        <p style="font-family: 'Times New Roman', Times, serif; font-size: large;"><b style="color:#111">employee Name :</b> {{ employe.Name_employe }}</p>
+        <p style="font-family: 'Times New Roman', Times, serif; font-size: large;"><b style="color:#111">employee Email :</b> {{ employe['Email'] }}</p>
+        <p style="font-family: 'Times New Roman', Times, serif; font-size: large;"><b style="color:#111;">service :</b> </p>
+        <p>
+          {% for f in employe.service %}
+           {{ f }}
+          {% endfor %}
+        </p>
 
+        <div>
+          <button style="border-radius: 7px; position: absolute; margin-left: 52%; height: 37px; background-color: rgba(36, 199, 22, 0.233);" class="btn btn-success pull-right" type="submit" data-toggle="modal" data-target="#myModalEdit"><span class="glyphicon glyphicon-pencil"></span></button>
+          <button style="border-radius: 7px; position: absolute; margin-left: 73%; height: 37px; background-color: rgba(206, 49, 44, 0.26);" class="btn btn-danger pull-right" type="submit" data-toggle="modal" data-target="#myModalDelet"><span class="glyphicon glyphicon-trash"></span></button>
         </div>
-    </div>    
+      </div>
+    </div>
     <br>
   </div>
 </div>
+
+<!-- Le reste de votre code HTML -->
 
 
 <!-- Modal confirmation-->
@@ -217,12 +219,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="color: rgb(214, 99, 122); font-family: Georgia, 'Times New Roman', Times, serif; font-size: large;">Are you sure want to delete M.{{prof_name}} ?</h5>
+        <h5 class="modal-title" id="exampleModalLabel" style="color: rgb(214, 99, 122); font-family: Georgia, 'Times New Roman', Times, serif; font-size: large;">Are you sure want to delete M.{{employe.Name_employe}} ?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="form" action='/prof/{{prof_name}}' method='POST' enctype='multipart/form-data'> 
+      <form class="form" action='/employe/{{employe.Name_employe}}' method='POST' enctype='multipart/form-data'> 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
         <a><button type="submit" class="btn btn-primary">Yes</button></a>
@@ -233,54 +235,46 @@
 </div>
 
  
- <!-- Modal edite professro -->
+ <!-- Modal edite employe -->
  <div class="modal fade" id="myModalEdit" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-         <div class="modal-header">
-           <button type="button" class="close" data-dismiss="modal">&times;</button>
-           <p class="modal-title">Edit Mr.{{firstNameOf_Prof}}</p>
-         </div>
-        <form class="form" action='/prof/{{prof_name}}' method='POST' enctype='multipart/form-data'>
-          <div class="modal-body">   
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Full Name :</label>
-              <input name="FName_" value="{{NprofName}}" type="text" class="form-control" id="recipient-name" required>
-            </div>
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <p class="modal-title">Edit Mr.{{Name_employe}}</p>
+       </div>
+       <form class="form" action="/employe/{{ employe.Name_employe }}" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">   
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label"> Name_employe :</label>
+            <input name="Name_employe" value="{{employe.Name_employe}}" type="text" class="form-control" id="recipient-name" required>
+          </div>
 
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">E-mail :</label>
-              <input name="email_" value="{{email}}" type="email" class="form-control" id="recipient-name" required>
-            </div>
-            <div class="form-group">
-              <label for="recipient-name" class="col-form-label">filieres : <br> 
-                <small style="color: rgba(197, 65, 65, 0.938);" >please enter the filier Name</small> </label>
-              <input name="courses_" value="{{CSV_Filieres}}" type="text" class="form-control" id="recipient-name" required>
-            </div>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">E-mail :</label>
+            <input name="email_" value="{{employe.Email}}" type="email" class="form-control" id="recipient-name" required>
           </div>
-         
-          <div class="modal-footer">            
-            <button style="background-color: rgba(0, 128, 0, 0.555); border-radius: 5px;"  type="submit" class="btn btn-success">Save</button>                   
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">service: <br> 
+              <small style="color: rgba(197, 65, 65, 0.938);" >please enter the service Name</small> </label>
+            <input name="service" value="{{employe.service}}" type="text" class="form-control" id="recipient-name" required>
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="modal-footer">            
+          <button style="background-color: rgba(0, 128, 0, 0.555); border-radius: 5px;"  type="submit" class="btn btn-success">Save</button>                   
+        </div>
+      </form>
     </div>
   </div>
- 
-
-
-  
-
-  
+</div>
 <!-- Footer -->
 <footer class="text-center">
-  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br>
-  <p> AHEMRI Mareim &nbsp;&nbsp;  -- &nbsp;&nbsp;  EL HANDAOUI Ibtissam  </p>
-  <p>Project Graduation</p>
+<a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+  <span class="glyphicon glyphicon-chevron-up"></span>
+</a><br><br>
+<p> ASMAE</p>
+<p>projet de stage</p>
 </footer>
-
 <script>
 $(document).ready(function(){
   // Initialize Tooltip
