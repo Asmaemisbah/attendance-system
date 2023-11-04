@@ -14,7 +14,7 @@ from simple_detect import SimpleDetect
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'EL Handaoui Ahemri'
+app.config['SECRET_KEY'] = 'ASMAE CHAYMAE '
 
 client = MongoClient("mongodb://127.0.0.1:27017/")
 db = client.stage
